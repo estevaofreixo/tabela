@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insira sua tabela</title>
+<title>Cole qualquer conteúdo</title>
 </head>
 <link rel="stylesheet" href="tabelas.css">
 <body>
 
     <div style="background-color: rgb(174, 213, 129); padding: 10px;">
-        <h1 style="float: left;">Insira abaixo sua tabela:</h1>
-        <button onclick="removerLinhasZero(); removerParagrafos(); verificarApagarParagrafo(); verificarApagarTRSemConteudo(); verificarApagarJuros();" class="btnTabela">Ajustar</button>
+        <h1 style="float: left;">Cole abaixo a tabela:</h1>
+        <button onclick="removerLinhasZero()" class="btnTabela">Excluir Linhas</button>
         <button onclick="copiarConteudo()" class="btnTabela">Copiar</button>
-        <button onclick="semTexto()" class="btnTabela">Sem texto</button>
-        <button onclick="limpaTudo();" class="btnTabela">Limpar</button>
+        <button onclick="limparConteudo()" class="btnTabela">Limpar</button>
+        <button onclick="removerParagrafos(); verificarApagarParagrafo(); verificarApagarTRSemConteudo(); verificarApagarJuros();" class="btnTabela">Verificar</button>
                 <div style="clear: both;"></div> <!-- Clearfix para evitar problemas de layout -->        
     </div>
 
@@ -21,12 +21,6 @@
 
     
 <script>
-
-function limpaTudo() {
-    var pasteArea = document.getElementById('pasteArea');
-    pasteArea.innerHTML = ''; // Limpa todo o conteúdo dentro da div
-}
-
 function removerLinhasZero() {
     // Verifica se há <figure> com a classe "table"
     var figuras = document.querySelectorAll('figure.table');
@@ -130,7 +124,7 @@ function copiarConteudo() {
     window.getSelection().removeAllRanges(); // Deselecionar o texto após a cópia    
 }
 
-function semTexto() {
+function limparConteudo() {
     var conteudo = document.getElementById('pasteArea');
     var elementos = conteudo.childNodes;
     for (var i = elementos.length - 1; i >= 0; i--) {
@@ -143,5 +137,4 @@ function semTexto() {
 
 </body>
 </html>
-
 
