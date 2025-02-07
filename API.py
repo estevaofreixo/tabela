@@ -3,11 +3,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "API está rodando!"
-
-@app.route("/predict", methods=["POST"])
+@app.route("/", methods=["POST"])  # Agora aceita POST na raiz
 def predict():
     data = request.json
     entrada = data.get("input", "")
